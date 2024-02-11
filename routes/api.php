@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//login api
+Route::post('/login', [App\Http\Controllers\Api\AuthController::class,'login']);
+
+//products api
+Route::apiResource('/products/list', App\Http\Controllers\Api\ProductController::class)->middleware('auth:sanctum');
+
+//categories api
+Route::apiResource('/categories/list', App\Http\Controllers\Api\CategoriesController::class)->middleware('auth:sanctum');
