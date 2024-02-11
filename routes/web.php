@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
+    //check user login
     return view('pages.auth.login');
 });
 
