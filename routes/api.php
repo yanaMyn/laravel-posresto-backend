@@ -19,13 +19,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //login api
-Route::post('/login', [App\Http\Controllers\Api\AuthController::class,'login']);
+Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
 
 //logout api
-Route::post('/logout', [App\Http\Controllers\Api\AuthController::class,'logout'])->middleware('auth:sanctum');
+Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 //products api
 Route::apiResource('/products/list', App\Http\Controllers\Api\ProductController::class)->middleware('auth:sanctum');
 
 //categories api
-Route::apiResource('/categories/list', App\Http\Controllers\Api\CategoriesController::class)->middleware('auth:sanctum');
+Route::apiResource('/categories/list/all', App\Http\Controllers\Api\CategoriesController::class)->middleware('auth:sanctum');
