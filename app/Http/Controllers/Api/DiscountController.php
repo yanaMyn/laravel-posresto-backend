@@ -17,4 +17,20 @@ class DiscountController extends Controller
             "data" => $discount
         ], 200);
     }
+
+    //store
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'value' => 'required'
+        ]);
+
+        $discount = Discount::create($request->all());
+        return response()->json([
+            "status" => "success",
+            "data" => $discount
+        ], 200);
+    }
 }
